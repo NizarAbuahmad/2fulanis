@@ -221,6 +221,11 @@ body.menu-locked{overflow:hidden;}
 .footer a:hover{color:var(--gold);}
 .footer-email{display:inline-block;font-size:1.1rem;font-weight:700;color:var(--gold);letter-spacing:.02em;padding:6px 0;border-bottom:1.5px solid rgba(191,157,41,.4);transition:.2s;}
 .footer-email:hover{color:var(--cream);border-bottom-color:var(--cream);}
+.footer-social{display:flex;gap:12px;margin-top:20px;}
+.footer-social a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(229,227,214,.35);color:var(--cream);transition:.2s;}
+.footer-social a:hover{background:var(--gold);border-color:var(--gold);color:var(--teal);}
+.footer-social a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+.footer-social svg{width:20px;height:20px;fill:currentColor;}
 .footer h4{font-family:var(--display);color:var(--cream);font-size:1.15rem;margin-bottom:14px;}
 .footer ul{list-style:none;}
 .footer ul li{margin-bottom:9px;font-size:.84rem;}
