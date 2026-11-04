@@ -1,0 +1,82 @@
+/* ===== Processing & Packing page =====
+   Loaded after /style.css and reuses its tokens (--teal, --gold, --cream ...).
+   Only holds what the main stylesheet does not already provide. */
+
+html{scroll-padding-top:90px;}
+.lang-toggle button:focus-visible{outline:2px solid var(--gold);outline-offset:-3px;}
+
+/* a longer headline than the main page's, so slightly smaller; keep "Shelf-Ready." on one line */
+.hero h1{font-size:clamp(2.2rem,5.2vw,3.8rem);}
+.nb{white-space:nowrap;}
+
+/* hero photo, framed in the site's arch shape */
+.hero-img{display:flex;justify-content:center;}
+.hero-img .hero-photo{display:block;width:100%;max-width:400px;height:clamp(430px,46vw,580px);object-fit:cover;object-position:center 38%;border-radius:200px 200px 24px 24px;box-shadow:0 30px 70px rgba(27,60,65,.22);background:var(--teal);}
+
+/* ===== INSIDE THE FACTORY ===== */
+.factory{background:var(--cream);}
+/* flex-grow equals each photo's aspect ratio, so all three tiles come out the same height */
+.reel-row{display:flex;gap:20px;align-items:flex-start;}
+.reel{position:relative;margin:0;min-width:0;border-radius:18px;overflow:hidden;background:var(--teal);box-shadow:0 14px 36px rgba(27,60,65,.14);}
+.reel.land{flex:1.778 1 0;}
+.reel.port{flex:.75 1 0;}
+.reel img{display:block;width:100%;height:auto;object-fit:cover;}
+.reel.land img{aspect-ratio:16/9;}
+.reel.port img{aspect-ratio:3/4;}
+.reel figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 18px 14px;background:linear-gradient(0deg,rgba(27,60,65,.92) 0%,rgba(27,60,65,.86) 70%,rgba(27,60,65,0) 100%);color:var(--cream);}
+.reel figcaption strong{display:block;font-family:var(--display);font-size:1.25rem;font-weight:600;line-height:1.2;}
+.reel figcaption span{display:block;font-size:.8rem;margin-top:2px;}
+
+/* ===== SERVICES ===== */
+#services .why-card:hover{transform:none;box-shadow:none;}
+
+/* ===== HOW IT WORKS ===== */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+.step-card{background:var(--cream);border-radius:18px;border-top:4px solid var(--gold);padding:30px 26px 28px;}
+.step-num{font-family:var(--display);font-size:2.8rem;font-weight:700;line-height:1;font-variant-numeric:lining-nums;color:#8a6d12;margin-bottom:12px;}
+.step-card h3{font-size:1.3rem;margin-bottom:10px;}
+.step-card p{font-size:.85rem;}
+
+/* ===== WHO IT'S FOR ===== */
+.who{background:var(--cream);}
+.who .ws-card{background:var(--white);}
+
+/* ===== GET A QUOTE ===== */
+.cta-panel{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(26px,4vw,56px);align-items:center;background:var(--teal);color:var(--cream);border-radius:28px;padding:clamp(28px,5vw,60px);}
+.cta-panel h2{color:var(--cream);}
+.cta-intro{font-size:.93rem;color:rgba(229,227,214,.92);}
+.cta-panel .impact-list{margin-top:18px;}
+.cta-card{background:var(--cream);color:var(--ink);border-radius:22px;padding:clamp(24px,4vw,40px);text-align:center;}
+.cta-card h3{font-size:1.7rem;margin-bottom:10px;}
+.cta-card p{font-size:.9rem;margin-bottom:22px;}
+.cta-card .btn{display:block;}
+.cta-email{display:inline-block;margin-top:16px;padding:4px 0;font-weight:700;color:var(--teal);border-bottom:1.5px solid rgba(27,60,65,.3);transition:.2s;}
+.cta-email:hover{color:var(--gold);border-bottom-color:var(--gold);}
+
+/* ===== FOOTER ===== */
+.pfoot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;margin-bottom:46px;}
+.footer-bottom a.tag:hover{color:var(--cream);}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1024px){
+  .steps{grid-template-columns:repeat(2,1fr);}
+  /* two landscape photos side by side, the portrait one centred below, so captions never swamp a narrow tile */
+  .reel-row{flex-wrap:wrap;}
+  .reel.land{flex:1 1 calc(50% - 10px);}
+  .reel.port{flex:none;width:100%;max-width:420px;margin:0 auto;}
+}
+@media (max-width:900px){
+  .hero-img .hero-photo{max-width:320px;height:clamp(380px,100vw,450px);border-radius:160px 160px 20px 20px;}
+  .cta-panel{grid-template-columns:1fr;}
+  /* the nav's quote button is hidden on phones, so put the text and its buttons before the photo */
+  .hero-img{order:0;}
+}
+@media (max-width:760px){
+  .reel-row{flex-direction:column;align-items:stretch;gap:16px;}
+  .reel.land,.reel.port{flex:none;width:100%;}
+  .reel.port{max-width:420px;margin:0 auto;}
+}
+@media (max-width:640px){
+  .steps{grid-template-columns:1fr;}
+  .cta-card .btn{padding:15px 18px;}
+}
