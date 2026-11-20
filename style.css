@@ -28,9 +28,10 @@ h2 em,h1 em{font-style:italic;color:var(--gold);}
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(229,227,214,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(27,60,65,.08);transition:box-shadow .3s;}
 .nav.scrolled{box-shadow:0 4px 24px rgba(27,60,65,.1);}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 0;}
-.nav-logo img{height:54px;width:auto;}
-.nav-links{display:flex;gap:26px;list-style:none;align-items:center;}
-.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);transition:color .2s;padding:8px 0;}
+.nav-logo{min-width:0;}
+.nav-logo img{height:54px;width:auto;max-width:100%;object-fit:contain;object-position:left center;}
+.nav-links{display:flex;gap:19px;list-style:none;align-items:center;}
+.nav-links a{font-size:.8rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);transition:color .2s;padding:8px 0;white-space:nowrap;}
 .nav-links a:hover{color:var(--gold);}
 .nav-right{display:flex;align-items:center;gap:14px;}
 .lang-toggle{display:flex;border:1.5px solid var(--teal);border-radius:30px;overflow:hidden;}
@@ -233,6 +234,15 @@ body.menu-locked{overflow:hidden;}
 .footer-bottom .tag{font-family:var(--display);font-style:italic;color:var(--gold);font-size:.95rem;}
 
 /* ===== RESPONSIVE ===== */
+/* The full menu needs about 1200px: tighten it on smaller laptops, switch to the burger menu below that */
+@media (max-width:1260px){
+  .nav-links{gap:15px;}
+  .nav-links a{font-size:.74rem;letter-spacing:.04em;}
+}
+@media (max-width:1200px){
+  .nav-links{display:none;}
+  .burger{display:flex;}
+}
 @media (max-width:1024px){
   .farm-grid,.why-grid{grid-template-columns:repeat(2,1fr);}
   .recipes-grid{grid-template-columns:repeat(2,1fr);}
